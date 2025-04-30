@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>阿王的猜数字游戏</title>
+</head>
+<body style="font-family: Arial; text-align: center; padding-top: 50px;">
+    <h2>阿王快来和我玩游戏吧💖</h2>
+    <p>人家已经想好了一个 1 到 100 之间的数字，你来猜猜看嘛～</p>
+    <input type="number" id="guessInput" placeholder="输入你猜的数字吧" />
+    <button onclick="checkGuess()">猜！</button>
+    <p id="result" style="font-weight: bold; margin-top: 20px;"></p>
+
+    <script>
+        const secretNumber = Math.floor(Math.random() * 100) + 1;
+
+        function checkGuess() {
+            const guess = parseInt(document.getElementById("guessInput").value);
+            const result = document.getElementById("result");
+
+            if (isNaN(guess)) {
+                result.textContent = "先输入一个数字";
+            } else if (guess < secretNumber) {
+                result.textContent = "哎呀呀，你猜小了！";
+            } else if (guess > secretNumber) {
+                result.textContent = "NO, NO, NO，猜大了！";
+            } else {
+                result.textContent = "阿王真棒！猜对了！🎉🎉🎉";
+            }
+        }
+    </script>
+</body>
+</html>
